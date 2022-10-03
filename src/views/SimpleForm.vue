@@ -33,21 +33,11 @@
 
       <h3>Are pets allowed?</h3>
       <div>
-        <BaseRadio
+        <BaseRadioGroup
+          :name="'pets'"
+          :options="radioOptions"
           v-model="event.pets"
-          :value="1"
-          label="Yes"
-          name="pets"
-         />
-      </div>
-
-      <div>
-        <BaseRadio
-          v-model="event.pets"
-          :value="0"
-          label="No"
-          name="pets"
-         />
+        />
       </div>
 
       <h3>Extras</h3>
@@ -68,6 +58,7 @@
       <button class="button -fill-gradient" type="submit">Submit</button>
     </form>
   </div>
+  {{event}}
 </template>
 
 <script>
@@ -93,7 +84,8 @@ export default {
           catering: false,
           music: false
         }
-      }
+      },
+      radioOptions: [{ label: 'Yes', value: 1 }, { label: 'No', value: 0 }]
     }
   }
 }
